@@ -375,6 +375,25 @@ div#itemDetailPage {
   font-size: clamp(1rem, 3.2vw, 1.2rem);
 }
 
+/* Ensure modern Jellyfin detail header/content are not clipped at the top */
+#itemDetailPage .detailPagePrimaryContainer.padded-left.padded-right.detailRibbon {
+  overflow: visible !important;
+  padding-top: clamp(3.75rem, 7vh, 6rem) !important;
+}
+
+#itemDetailPage .detailPagePrimaryContent {
+  min-height: 0;
+}
+
+.layout-desktop #itemDetailPage .detailPageWrapperContainer,
+.layout-tv #itemDetailPage .detailPageWrapperContainer {
+  padding-top: clamp(0.75rem, 1.8vh, 1.5rem);
+}
+
+.layout-mobile #itemDetailPage .detailPagePrimaryContainer.padded-left.padded-right.detailRibbon {
+  padding-top: clamp(4.75rem, 9vh, 7.5rem) !important;
+}
+
 .layout-tv .backdropContainer {
   display: block !important;
   z-index: -1;
