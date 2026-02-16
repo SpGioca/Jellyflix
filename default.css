@@ -306,6 +306,75 @@ div#itemDetailPage {
   display: none !important;
 }
 
+/*
+  Jellyfin 10.9+ detail-page compatibility fixes:
+  - old rules were based on fixed 100vh hero layouts and very large vw/vh font sizes
+  - in recent versions this can hide top metadata and make the page look over-zoomed
+*/
+
+#itemDetailPage .detailPageWrapperContainer {
+  margin: 0 auto;
+  width: min(100%, 120rem);
+}
+
+#itemDetailPage .detailPagePrimaryContent {
+  width: min(100%, 52rem);
+  font-size: clamp(1rem, 1.1vw, 1.18rem);
+}
+
+#itemDetailPage .itemName.parentNameLast {
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
+  line-height: 1.1;
+}
+
+#itemDetailPage .itemMiscInfo,
+#itemDetailPage .itemExternalLinks,
+#itemDetailPage .mainDetailButtons {
+  font-size: clamp(0.95rem, 0.8vw + 0.5rem, 1.22rem);
+}
+
+.layout-mobile #itemDetailPage .detailPageWrapperContainer {
+  margin: 0 !important;
+}
+
+.layout-mobile #itemDetailPage .detailPagePrimaryContainer {
+  min-height: 100vh;
+  height: auto !important;
+  width: 100% !important;
+}
+
+.layout-mobile #itemDetailPage .detailPagePrimaryContainer.padded-left.padded-right.detailRibbon {
+  font-size: clamp(1rem, 2.3vw, 1.2rem);
+  height: auto !important;
+  min-height: 100vh;
+  padding-top: clamp(4rem, 8vh, 7rem) !important;
+}
+
+.layout-mobile #itemDetailPage .nameContainer {
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+}
+
+.layout-mobile #itemDetailPage .infoText,
+.layout-mobile #itemDetailPage .infoWrapper.infoText {
+  font-size: clamp(1rem, 3.2vw, 1.25rem) !important;
+  line-height: 1.5;
+  max-width: 44rem;
+}
+
+.layout-mobile #itemDetailPage .mainDetailButtons {
+  margin: clamp(0.5rem, 2.5vh, 1.25rem) 5vw;
+  height: auto;
+}
+
+.layout-mobile #itemDetailPage .detailButton {
+  min-height: 2.8rem;
+}
+
+.layout-mobile #itemDetailPage .btnPlay,
+.layout-mobile #itemDetailPage .btnResume {
+  font-size: clamp(1rem, 3.2vw, 1.2rem);
+}
+
 .layout-tv .backdropContainer {
   display: block !important;
   z-index: -1;
